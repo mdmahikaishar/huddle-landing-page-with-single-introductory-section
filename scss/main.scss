@@ -1,0 +1,144 @@
+@import "./variable";
+@import "./reset";
+@import "./mixin";
+
+body {
+    min-height: 100vh;
+    background-color: $violet;
+    background-image: url("../images/bg-desktop.svg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @include subMedium() {
+        background-image: url("../images/bg-mobile.svg");
+    }
+}
+
+.hold {
+    margin: 0 auto;
+    width: 90%;
+}
+
+.header {
+    height: 7.5rem;
+    display: flex;
+    align-items: center;
+
+    img {
+        height: 3rem;
+        object-fit: contain;
+    }
+
+    @include subMedium() {
+        height: 5rem;
+
+        img {
+            height: 2rem;
+        }
+    }
+}
+
+.hero {
+    min-height: calc(100vh - 6.5rem);
+    padding-bottom: 5em;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    img {
+        width: 55%;
+        object-fit: contain;
+    }
+
+    &Txt {
+        width: 45%;
+        padding-left: 3rem;
+
+        h1 {
+            max-width: 25ch;
+            font-size: 2.5rem;
+            color: #fff;
+            font-weight: 500;
+        }
+
+        p {
+            max-width: 50ch;
+            margin-top: 1.5rem;
+            color: #fff;
+        }
+
+        button {
+            margin-top: 1.75rem;
+            padding: 0.8em 3.5em;
+            font-size: 1.1rem;
+            font-weight: 500;
+            border: none;
+            color: $violet;
+            border-radius: 2em;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+
+            &:hover {
+                background-color: $softMagenta;
+                color: #fff;
+            }
+        }
+
+        @include medium() {
+            h1 {
+                font-size: 2rem;
+            }
+
+            button {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    &Links {
+        position: absolute;
+        display: flex;
+        right: 0;
+        bottom: 5rem;
+
+        a {
+            margin: 0.5em;
+            width: 2.5em;
+            height: 2.5em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #fff;
+            color: #fff;
+            border-radius: 2.5em;
+
+            &:hover {
+                border-color: $softMagenta;
+                color: $softMagenta;
+            }
+        }
+    }
+
+    @include subMedium() {
+        flex-direction: column;
+
+        img {
+            width: 100%;
+        }
+        &Txt {
+            width: 100%;
+            padding: 5em 0 7.5em 0;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        &Links {
+            right: 50%;
+            transform: translateX(50%);
+        }
+    }
+}
